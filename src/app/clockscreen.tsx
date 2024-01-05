@@ -1,7 +1,9 @@
+'use client'; 
+
 import { Rubik_Mono_One } from 'next/font/google'
 import { useState } from 'react'
 
-import styles from '@/styles/ClockScreen.module.css'
+import styles from './ClockScreen.module.css'
 
 const font = Rubik_Mono_One({
   weight: '400',
@@ -75,7 +77,7 @@ export default function ClockScreen() {
   const h = date.getHours();
   const m = date.getMinutes();
   const s = date.getSeconds();
-  
+
   return (    
     <>
       <DateBlock year={Y} month={M} day={D} week={W} />

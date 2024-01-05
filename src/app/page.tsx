@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { Roboto } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from './Home.module.css'
 
-import ClockScreen from '@/pages/clockscreen'
+import ClockScreen from './clockscreen'
 
 const roboto = Roboto({
   weight: '400',
