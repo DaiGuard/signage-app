@@ -1,7 +1,7 @@
 'use client'; 
 
 import { Rubik_Mono_One } from 'next/font/google'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import styles from './ClockScreen.module.css'
 
@@ -66,9 +66,13 @@ function ClockBlock({hour, min, sec}: ClockBlockProps) {
 export default function ClockScreen() {    
   const [date, setDate] = useState(new Date());
 
-  setInterval(() => {
-    setDate(new Date());
-  }, 1000);
+  useEffect(() => {
+    const timerid = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+
+    return() => clearInterval(timerid);
+  }, [date]);
 
   const Y = date.getFullYear();
   const M = date.getMonth()+1;
@@ -76,12 +80,12 @@ export default function ClockScreen() {
   const W = date.getDay();
   const h = date.getHours();
   const m = date.getMinutes();
-  const s = date.getSeconds();
+  const s = date.getSeconds();  
 
   return (    
     <>
       <DateBlock year={Y} month={M} day={D} week={W} />
       <ClockBlock hour={h} min={m} sec={s} />
     </>
-  );
+  );  
 }
