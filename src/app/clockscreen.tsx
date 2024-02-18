@@ -63,7 +63,7 @@ function ClockBlock({hour, min, sec}: ClockBlockProps) {
 }
 
 
-export default function ClockScreen() {    
+export default function ClockScreen() {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
